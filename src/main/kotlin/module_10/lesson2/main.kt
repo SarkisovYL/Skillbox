@@ -13,6 +13,8 @@ fun main() {
     val boeing737 = createAndFillBoeing()
     println(boeing737.getInfo())
     boeing737.getSeatScheme()
+/*  Группировка цепочки вызовов
+    При группировке цепочки вызовов, расположите символ . или оператор ?. на следующей строке с обычным отступом. */
     boeing737.getPassenger(Seat(0, 'C'))     // место 0С
         ?.getInfo()                                     // если пассажир найден то вызвать getInfo()
         ?.let { println(it) }                           // если функция была вызвана (т.е. не null) - распечатаем информацию в консоль
