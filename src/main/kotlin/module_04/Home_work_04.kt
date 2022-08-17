@@ -1,7 +1,7 @@
 package module_04
 
 fun main() {
-    val sourceString: String = "F2p)v\"y233{0->c}ttelciFc!"      // Ёкранирование символа двойных кавычек
+    val sourceString = "F2p)v\"y233{0->c}ttelciFc!"      // Ёкранирование символа двойных кавычек
     println("The source string: $sourceString")
     val halfIndex = (sourceString.count() / 2)
     val firstHalfSourceString = sourceString.substring(startIndex = 0, endIndex = halfIndex)
