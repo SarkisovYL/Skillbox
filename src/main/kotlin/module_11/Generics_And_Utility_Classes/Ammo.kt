@@ -1,7 +1,5 @@
 package module_11.Generics_And_Utility_Classes
 
-import module_11.lesson5.random
-
 // Перечисление (enum) Ammo для видов патронов. Реализация интерфейса Damage.
 // Типы патронов - 9 мм ПМ; 7,62 AKM; 5,45 РПК; 7,62 Снайперка.
 
@@ -25,5 +23,5 @@ enum class Ammo(): Damage {
         override val loss = 100
         override val chance = 100
         override val coefficient = 1
-    };
+    },
 }
