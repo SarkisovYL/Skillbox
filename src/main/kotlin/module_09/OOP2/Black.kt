@@ -1,7 +1,6 @@
 package module_09.OOP2
 
 import java.math.RoundingMode
-import kotlin.math.roundToInt
 
 class Black(
     private val bonus: Double = 1.0,            // Бонусные баллы в размере 1% от покупок
