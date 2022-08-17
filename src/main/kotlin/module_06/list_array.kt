@@ -9,11 +9,13 @@ fun  main() {
 //  TODO НЕИЗМЕНЯЕМЫЕ СПИСКИ (по значению и длине, аналог кортежа в Phython)
     val list = listOf(1, 2, 3, 4)
     val carlist = listOf("Mersedes", "BMW", "Ferrari")
+    println(carlist[0])
 //    list[1] = 20    // Изменение невозможно
 
 //  Создание пустых списков. Для них нужно обязательно указать тип данных.
     val emptyList = listOf<String>()
     val secondEmptyList = emptyList<String>()
+    println(secondEmptyList.size)
 
     println("Индекс пустого списка равен ${emptyList.lastIndex}")
 
@@ -29,9 +31,12 @@ fun  main() {
 //  TODO ИЗМЕНЯЕМЫЕ СПИСКИ (по значению и длине, аналог списка list в Phython) - MutableList
     val mutibleList = mutableListOf<Int>(1, 2, 3, 4)
     val mutibleCarList = mutableListOf<String>("Mersedes", "BMW", "Ferrari")
+    println(mutibleCarList[0])
 
     val mutibleSecondList = List(5) { 0 }
+    println(mutibleSecondList.size)
     val mutibleSecondCarList = List<String>(3) { index -> "Car#${index}" }
+    println(mutibleSecondCarList.size)
 
     mutibleList[1] = 20
     mutibleList.add(5)
@@ -46,7 +51,9 @@ fun  main() {
 
 //  Создание пустых массивов. Для них нужно обязательно указать тип данных.
     val emptyArray = arrayOf<String>()
+    println(emptyArray.size)
     val secondEmptyArray = emptyArray<String>()
+    println(secondEmptyArray.size)
 
 //  Циклы в списках с помощью for
     for (i in array.indices) {
@@ -79,7 +86,7 @@ fun  main() {
 //
 //    1 способ решения - Промежуточный список.
 //    Недостаток - промежуточный список, а значит затраты по памяти.
-    var candidatesToRemove = mutableListOf<Int>()
+    val candidatesToRemove = mutableListOf<Int>()
     numbers.forEach {
         if (it < 0) candidatesToRemove.add(it)
     }
@@ -88,10 +95,10 @@ fun  main() {
 //
 //    2 способ - Использование итератора, т.е. элемента позволяющего обходить экземпляры списка.
 //    Итератор не привязан к индексам, поэтому ошибок связанных с индексом не возникает.
-    var numbers_iter = MutableList(10) { Random.nextInt(-10, 10) }
+    val numbers_iter = MutableList(10) { Random.nextInt(-10, 10) }
     println("Удалим из списка элементы, которые < 0")
     println(numbers_iter)
-    var iterator = numbers_iter.iterator()
+    val iterator = numbers_iter.iterator()
     while (iterator.hasNext()) {
 //      с помощи функции hasNext() проверяем есть ли еще элементы в списке
         val iter = iterator.next()  // функцией .next() берем элемент на который указывает итератор
@@ -102,7 +109,7 @@ fun  main() {
 //
 //    3 Способ предоставляет сам Kotlin с помощью функции высшего порядка removeAll
 //    которая принимает в качестве параметров лямбда выражения
-    var numbers_removeAll = MutableList(10) { Random.nextInt(-10, 10) }
+    val numbers_removeAll = MutableList(10) { Random.nextInt(-10, 10) }
     println("Удалим из списка элементы, которые < 0")
     println(numbers_removeAll)
     numbers_removeAll.removeAll { it < 0 }
@@ -121,4 +128,10 @@ fun  main() {
     stringList.forEach{println(it)}
     stringList.forEachIndexed{index, item -> println("Item - $item Index - $index")}
 
+    val fruits = listOf("банан", "авокадо", "яблоко", "киви", "айва")
+    fruits
+        .filter { it.startsWith("а") }
+        .sortedBy { it }
+        .map { it.uppercase() }
+        .forEach { println(it) }
 }
