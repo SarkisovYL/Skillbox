@@ -1,7 +1,5 @@
 package module_07
 
-import kotlin.random.Random
-
 class Car_dop_constructor(val brand: String, val model: String, val color: String = "White") {
 
 //    Дополнительный конструктов вызывает основной консоруктов через слово this с передачей аргументов

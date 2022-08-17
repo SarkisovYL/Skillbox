@@ -3,8 +3,7 @@ package module_07.TV
 import kotlin.random.Random
 
 class TV (val model: String, val size: Int) {
-    var brand: String = "Samsung"
-        private set
+    val brand: String = "Samsung"
     var turnOnOff: Boolean = false
         private set
     private var currentValume: Int = 50
@@ -38,7 +37,7 @@ class TV (val model: String, val size: Int) {
     }
 
     //  Переключение по номеру канала
-    fun selectСhannel(number: Int) {
+    fun selectChannels(number: Int) {
         if (!turnOnOff) turnOnOff()
         currentChannel = if (number > 0)
             if (number > listChannels.size) currentChannel else listChannels[number]
@@ -71,7 +70,7 @@ class TV (val model: String, val size: Int) {
         println("Загружено каналов: ${listChannels.size}")
         println("Список каналов: $listChannels")
         println("Текущий канал: № ${listChannels.indexOf(currentChannel)} - $currentChannel")
-        println("${Channel.getDescription(currentChannel)}")
+        println("Информационный блок. ${Channel.getDescription(currentChannel)}")
         println("Текущая громкость: $currentValume")
     }
 

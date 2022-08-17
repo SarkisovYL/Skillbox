@@ -8,7 +8,7 @@ fun main() {
     ue43.turnOnOff()
     ue50.turnOnOff()
     ue43.turnOnOff()
-    ue43.selectСhannel(5)
+    ue43.selectChannels(5)
     ue43.valumeUp(30)
     ue50.valumeDown(20)
     for (i in 1..10) {
@@ -18,7 +18,7 @@ fun main() {
         ue50.channelDown()
     }
     ue50.turnOnOff()
-    ue50.selectСhannel(3)
+    ue50.selectChannels(3)
     ue50.info()
     ue43.info()
 }
