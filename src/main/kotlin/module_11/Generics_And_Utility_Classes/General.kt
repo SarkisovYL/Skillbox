@@ -1,5 +1,6 @@
 package module_11.Generics_And_Utility_Classes
 
+//  Классы для воинов, наследуемых от AbstractWarrior
 class General(
     override val title: String = "Генерал",
     override val maxHealth: Int = 20000,

@@ -1,5 +1,6 @@
 package module_11.Generics_And_Utility_Classes
 
+//  Классы для воинов, наследуемых от AbstractWarrior
 class Sniper (
     override val title: String = "Снайпер",
     override val maxHealth: Int = 10000,
