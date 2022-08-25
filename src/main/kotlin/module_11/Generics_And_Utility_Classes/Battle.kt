@@ -40,15 +40,15 @@ class Battle(
     fun getBattleState(op: BattleState) = when (op) {
         is BattleState.Progress -> println("Битва продолжается. Следующий шаг.")
         is BattleState.VictoryFirstTeam -> {
-            println("Битва окончена. Победила команда 1 '${firstTeam.name}'")
+            println("*".repeat(30) + " БИТВА ОКОНЧЕНА. ПОБЕДИЛА КОМАНДА 1 '${firstTeam.name}'. " + "*".repeat(30))
             endBattle = true
         }
         is BattleState.VictorySecondTeam -> {
-            println("Битва окончена. Победила команда 2 '${secondTeam.name}'")
+            println("*".repeat(30) + " БИТВА ОКОНЧЕНА. ПОБЕДИЛА КОМАНДА 2 '${secondTeam.name}'. " + "*".repeat(30))
             endBattle = true
         }
         is BattleState.Draw -> {
-            println("Битва окончена. Ничья")
+            println("*".repeat(30) + " БИТВА ОКОНЧЕНА. НИЧЬЯ. " + "*".repeat(30))
             endBattle = true
         }
     }

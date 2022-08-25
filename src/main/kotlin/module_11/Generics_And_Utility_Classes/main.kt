@@ -5,9 +5,11 @@ import kotlin.random.Random
 fun main() {
     // Начало битвы
     var i = 1
-    val battle = Battle(Team("Белые", 20), Team("Красные", 25))
+    val battle = Battle(Team("Белые", 2), Team("Красные", 2))
+    battle.firstTeam.info(" СОСТАВ КОМАНДЫ 1 '${battle.firstTeam.name}' ")
+    battle.secondTeam.info(" СОСТАВ КОМАНДЫ 2 '${battle.secondTeam.name}' ")
     do {
-        println("============== Итерация $i ======================")
+        println("=".repeat(18) + " Итерация $i " + "=".repeat(18))
         battle.nextStepBattle()
         battle.firstTeam.info()
         battle.secondTeam.info()
