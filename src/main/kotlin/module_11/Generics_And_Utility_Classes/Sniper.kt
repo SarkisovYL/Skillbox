@@ -8,6 +8,4 @@ class Sniper (
     override var currentHealth: Int = 5000,
     override val isKilled: Int = 100,
     override val evasion: Int = 60
-): AbstractWarrior() {
-
-}
+): AbstractWarrior()

@@ -8,6 +8,4 @@ class General(
     override var currentHealth: Int = 15000,
     override val isKilled: Int = 90,
     override val evasion: Int = 90
-): AbstractWarrior() {
-
-}
+): AbstractWarrior()

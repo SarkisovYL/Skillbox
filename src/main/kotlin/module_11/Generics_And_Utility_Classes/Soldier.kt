@@ -8,6 +8,4 @@ class Soldier(
     override var currentHealth: Int = 5000,
     override val isKilled: Int = 30,
     override val evasion: Int = 30
-): AbstractWarrior() {
-
-}
+): AbstractWarrior()
