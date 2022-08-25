@@ -2,7 +2,7 @@ package module_11.Generics_And_Utility_Classes
 
 import kotlin.random.Random
 
-// Класс команды Team, которая состоит из воинов
+// РљР»Р°СЃСЃ РєРѕРјР°РЅРґС‹ Team, РєРѕС‚РѕСЂР°СЏ СЃРѕСЃС‚РѕРёС‚ РёР· РІРѕРёРЅРѕРІ
 class Team(
     val name: String = "Team",
     private val size: Int = 1
@@ -12,9 +12,9 @@ class Team(
         repeat(size) { structure.add(addWarrior()) }
     }
 
-    //    В команду воины набираются по вероятности: чем выше вероятность, тем ниже ранг.
-    //    Пример: с вероятностью 10% создаётся генерал, иначе с вероятностью 40% создаётся капитан,
-    //    иначе создаётся солдат. Для вероятностного выбора используем Функция-расширение для типа Int.
+    //    Р’ РєРѕРјР°РЅРґСѓ РІРѕРёРЅС‹ РЅР°Р±РёСЂР°СЋС‚СЃСЏ РїРѕ РІРµСЂРѕСЏС‚РЅРѕСЃС‚Рё: С‡РµРј РІС‹С€Рµ РІРµСЂРѕСЏС‚РЅРѕСЃС‚СЊ, С‚РµРј РЅРёР¶Рµ СЂР°РЅРі.
+    //    РџСЂРёРјРµСЂ: СЃ РІРµСЂРѕСЏС‚РЅРѕСЃС‚СЊСЋ 10% СЃРѕР·РґР°С‘С‚СЃСЏ РіРµРЅРµСЂР°Р», РёРЅР°С‡Рµ СЃ РІРµСЂРѕСЏС‚РЅРѕСЃС‚СЊСЋ 40% СЃРѕР·РґР°С‘С‚СЃСЏ РєР°РїРёС‚Р°РЅ,
+    //    РёРЅР°С‡Рµ СЃРѕР·РґР°С‘С‚СЃСЏ СЃРѕР»РґР°С‚. Р”Р»СЏ РІРµСЂРѕСЏС‚РЅРѕСЃС‚РЅРѕРіРѕ РІС‹Р±РѕСЂР° РёСЃРїРѕР»СЊР·СѓРµРј Р¤СѓРЅРєС†РёСЏ-СЂР°СЃС€РёСЂРµРЅРёРµ РґР»СЏ С‚РёРїР° Int.
     private fun addWarrior(): AbstractWarrior {
         return if (Int.Companion.random(10)) {
             General()
@@ -27,9 +27,9 @@ class Team(
         }
     }
 
-    //  Получить случайного война из команды
+    //  РџРѕР»СѓС‡РёС‚СЊ СЃР»СѓС‡Р°Р№РЅРѕРіРѕ РІРѕР№РЅР° РёР· РєРѕРјР°РЅРґС‹
     fun getWarriorRandom(): AbstractWarrior? {
-        val liveWars = this.structure.filter {it.currentHealth > 0}     // Список живых войнов
+        val liveWars = this.structure.filter {it.currentHealth > 0}     // РЎРїРёСЃРѕРє Р¶РёРІС‹С… РІРѕР№РЅРѕРІ
         return if (liveWars.size > 0) {
             liveWars[Random.nextInt(0, liveWars.size)]
         } else {
@@ -39,18 +39,18 @@ class Team(
 
     fun info() {
         println("-".repeat(50))
-        println("В команде ${this.name} из ${this.size} войнов в живых осталось ${this.structure.filter {it.currentHealth > 0}.size}")
-        println("Остались в команде $name")
+        println("Р’ РєРѕРјР°РЅРґРµ ${this.name} РёР· ${this.size} РІРѕР№РЅРѕРІ РІ Р¶РёРІС‹С… РѕСЃС‚Р°Р»РѕСЃСЊ ${this.structure.filter {it.currentHealth > 0}.size}")
+        println("РћСЃС‚Р°Р»РёСЃСЊ РІ РєРѕРјР°РЅРґРµ $name")
         this.structure.filter {it.currentHealth > 0}.forEachIndexed{i, item -> println(
-            "\t№ ${i + 1} Должность: ${item.title} Здоровье: ${item.currentHealth} Оружие: ${item.weapon.name}")}
-        println("Погибли в команде $name")
+            "\tв„– ${i + 1} Р”РѕР»Р¶РЅРѕСЃС‚СЊ: ${item.title} Р—РґРѕСЂРѕРІСЊРµ: ${item.currentHealth} РћСЂСѓР¶РёРµ: ${item.weapon.name}")}
+        println("РџРѕРіРёР±Р»Рё РІ РєРѕРјР°РЅРґРµ $name")
         this.structure.filter {it.currentHealth <= 0}.forEachIndexed{i, item -> println(
-            "\t№ ${i + 1} Должность: ${item.title} Оружие: ${item.weapon.name}")}
+            "\tв„– ${i + 1} Р”РѕР»Р¶РЅРѕСЃС‚СЊ: ${item.title} РћСЂСѓР¶РёРµ: ${item.weapon.name}")}
     }
     fun info(begin: String) {
         println("=".repeat(20) + begin + "=".repeat(20))
-        println("КОЛИЧЕСТВО ВОЙНОВ: ${this.size}")
+        println("РљРћР›РР§Р•РЎРўР’Рћ Р’РћР™РќРћР’: ${this.size}")
         this.structure.forEachIndexed{i, item -> println(
-            "\t№ ${i + 1} Должность: ${item.title} Здоровье: ${item.currentHealth} Оружие: ${item.weapon.name}")}
+            "\tв„– ${i + 1} Р”РѕР»Р¶РЅРѕСЃС‚СЊ: ${item.title} Р—РґРѕСЂРѕРІСЊРµ: ${item.currentHealth} РћСЂСѓР¶РёРµ: ${item.weapon.name}")}
     }
 }
