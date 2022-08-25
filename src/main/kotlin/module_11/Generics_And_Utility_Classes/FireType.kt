@@ -1,11 +1,11 @@
 package module_11.Generics_And_Utility_Classes
 
-//  Sealed-класс для вида стрельбы FireType
+//  Sealed-РєР»Р°СЃСЃ РґР»СЏ РІРёРґР° СЃС‚СЂРµР»СЊР±С‹ FireType
 sealed class FireType {
-//    Наследники класса:
-//      Одиночный выстрел (singleton object)
+//    РќР°СЃР»РµРґРЅРёРєРё РєР»Р°СЃСЃР°:
+//      РћРґРёРЅРѕС‡РЅС‹Р№ РІС‹СЃС‚СЂРµР» (singleton object)
     object SingleShot: FireType()
 
-//      Стрельба очередями (data class). Data class в конструкторе принимает параметр «размер очереди»
+//      РЎС‚СЂРµР»СЊР±Р° РѕС‡РµСЂРµРґСЏРјРё (data class). Data class РІ РєРѕРЅСЃС‚СЂСѓРєС‚РѕСЂРµ РїСЂРёРЅРёРјР°РµС‚ РїР°СЂР°РјРµС‚СЂ В«СЂР°Р·РјРµСЂ РѕС‡РµСЂРµРґРёВ»
     data class FiringBursts(val sizeQueue: Int): FireType()
 }

@@ -1,26 +1,26 @@
 package module_11.Generics_And_Utility_Classes
 
-//  Абстрактный класс оружия
+//  РђР±СЃС‚СЂР°РєС‚РЅС‹Р№ РєР»Р°СЃСЃ РѕСЂСѓР¶РёСЏ
 abstract class AbstractWeapon {
-    abstract val maxRounds : Int                // Максимальное количество патронов в магазине
-    abstract val fireType: FireType             // Вид стрельбы (FireType)
-    abstract val ammoMagazine: Stack<Ammo>      // Магазин патронов. При создании оружия магазин пуст
-    abstract var roundsInMagazine : Boolean     // Факт наличия патронов в магазине
-    abstract var name : String                  // Наименование оружия
+    abstract val maxRounds : Int                // РњР°РєСЃРёРјР°Р»СЊРЅРѕРµ РєРѕР»РёС‡РµСЃС‚РІРѕ РїР°С‚СЂРѕРЅРѕРІ РІ РјР°РіР°Р·РёРЅРµ
+    abstract val fireType: FireType             // Р’РёРґ СЃС‚СЂРµР»СЊР±С‹ (FireType)
+    abstract val ammoMagazine: Stack<Ammo>      // РњР°РіР°Р·РёРЅ РїР°С‚СЂРѕРЅРѕРІ. РџСЂРё СЃРѕР·РґР°РЅРёРё РѕСЂСѓР¶РёСЏ РјР°РіР°Р·РёРЅ РїСѓСЃС‚
+    abstract var roundsInMagazine : Boolean     // Р¤Р°РєС‚ РЅР°Р»РёС‡РёСЏ РїР°С‚СЂРѕРЅРѕРІ РІ РјР°РіР°Р·РёРЅРµ
+    abstract var name : String                  // РќР°РёРјРµРЅРѕРІР°РЅРёРµ РѕСЂСѓР¶РёСЏ
 
-    abstract fun createAmmo(): Ammo             // Создание патрона необходимого типа
+    abstract fun createAmmo(): Ammo             // РЎРѕР·РґР°РЅРёРµ РїР°С‚СЂРѕРЅР° РЅРµРѕР±С…РѕРґРёРјРѕРіРѕ С‚РёРїР°
 
-    // Перезарядка — создаётся новый магазин и заполняется патронами с помощью функции создания патрона
+    // РџРµСЂРµР·Р°СЂСЏРґРєР° вЂ” СЃРѕР·РґР°С‘С‚СЃСЏ РЅРѕРІС‹Р№ РјР°РіР°Р·РёРЅ Рё Р·Р°РїРѕР»РЅСЏРµС‚СЃСЏ РїР°С‚СЂРѕРЅР°РјРё СЃ РїРѕРјРѕС‰СЊСЋ С„СѓРЅРєС†РёРё СЃРѕР·РґР°РЅРёСЏ РїР°С‚СЂРѕРЅР°
     open fun reloading(): Stack<Ammo> {
-        println("ПЕРЕЗАРЯДКА")
+        println("РџР•Р Р•Р—РђР РЇР”РљРђ")
         repeat(maxRounds) {ammoMagazine.push(createAmmo())}
         roundsInMagazine = true
-        println("Патронов в магазине ${ammoMagazine.count()}")
+        println("РџР°С‚СЂРѕРЅРѕРІ РІ РјР°РіР°Р·РёРЅРµ ${ammoMagazine.count()}")
         return ammoMagazine
     }
-    // Получение патронов для выстрела одиночным или очередью.
+    // РџРѕР»СѓС‡РµРЅРёРµ РїР°С‚СЂРѕРЅРѕРІ РґР»СЏ РІС‹СЃС‚СЂРµР»Р° РѕРґРёРЅРѕС‡РЅС‹Рј РёР»Рё РѕС‡РµСЂРµРґСЊСЋ.
     fun getCartridge(ft: FireType) = when (ft) {
-//      Если патроны закончились, перезарядить и продолжить стрельбу.
+//      Р•СЃР»Рё РїР°С‚СЂРѕРЅС‹ Р·Р°РєРѕРЅС‡РёР»РёСЃСЊ, РїРµСЂРµР·Р°СЂСЏРґРёС‚СЊ Рё РїСЂРѕРґРѕР»Р¶РёС‚СЊ СЃС‚СЂРµР»СЊР±Сѓ.
         is FireType.SingleShot -> ammoMagazine.pop() ?: reloading()
         is FireType.FiringBursts -> repeat(ft.sizeQueue) { ammoMagazine.pop() ?: reloading()}
     }

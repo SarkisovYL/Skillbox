@@ -1,11 +1,11 @@
 package module_11.Generics_And_Utility_Classes
 
 class Battle(
-    val firstTeam: Team,            // Команда 1
-    val secondTeam: Team,           // Команда 2
-    var endBattle: Boolean  = false // Битва завершена
+    val firstTeam: Team,            // РљРѕРјР°РЅРґР° 1
+    val secondTeam: Team,           // РљРѕРјР°РЅРґР° 2
+    var endBattle: Boolean  = false // Р‘РёС‚РІР° Р·Р°РІРµСЂС€РµРЅР°
 ) {
-    //  Получить состояние сражения.
+    //  РџРѕР»СѓС‡РёС‚СЊ СЃРѕСЃС‚РѕСЏРЅРёРµ СЃСЂР°Р¶РµРЅРёСЏ.
     private fun getConditionBattle(): BattleState {
         if ((firstTeam.getWarriorRandom() != null) && (secondTeam.getWarriorRandom() != null))
             return BattleState.Progress
@@ -21,8 +21,8 @@ class Battle(
         return BattleState.Draw
     }
 
-    //  Совершить итерацию битвы.
-    //  Воины двух команд перемешиваются. Воины из каждой команды наносят друг другу урон по очереди, если они живы.
+    //  РЎРѕРІРµСЂС€РёС‚СЊ РёС‚РµСЂР°С†РёСЋ Р±РёС‚РІС‹.
+    //  Р’РѕРёРЅС‹ РґРІСѓС… РєРѕРјР°РЅРґ РїРµСЂРµРјРµС€РёРІР°СЋС‚СЃСЏ. Р’РѕРёРЅС‹ РёР· РєР°Р¶РґРѕР№ РєРѕРјР°РЅРґС‹ РЅР°РЅРѕСЃСЏС‚ РґСЂСѓРі РґСЂСѓРіСѓ СѓСЂРѕРЅ РїРѕ РѕС‡РµСЂРµРґРё, РµСЃР»Рё РѕРЅРё Р¶РёРІС‹.
     fun nextStepBattle() {
         val warriorFirstTeam = firstTeam.getWarriorRandom()
         val warriorSecondTeam = secondTeam.getWarriorRandom()
@@ -36,19 +36,19 @@ class Battle(
         }
     }
 
-    //  Получить статус битвы.
+    //  РџРѕР»СѓС‡РёС‚СЊ СЃС‚Р°С‚СѓСЃ Р±РёС‚РІС‹.
     fun getBattleState(op: BattleState) = when (op) {
-        is BattleState.Progress -> println("Битва продолжается. Следующий шаг.")
+        is BattleState.Progress -> println("Р‘РёС‚РІР° РїСЂРѕРґРѕР»Р¶Р°РµС‚СЃСЏ. РЎР»РµРґСѓСЋС‰РёР№ С€Р°Рі.")
         is BattleState.VictoryFirstTeam -> {
-            println("*".repeat(30) + " БИТВА ОКОНЧЕНА. ПОБЕДИЛА КОМАНДА 1 '${firstTeam.name}'. " + "*".repeat(30))
+            println("*".repeat(30) + " Р‘РРўР’Рђ РћРљРћРќР§Р•РќРђ. РџРћР‘Р•Р”РР›Рђ РљРћРњРђРќР”Рђ 1 '${firstTeam.name}'. " + "*".repeat(30))
             endBattle = true
         }
         is BattleState.VictorySecondTeam -> {
-            println("*".repeat(30) + " БИТВА ОКОНЧЕНА. ПОБЕДИЛА КОМАНДА 2 '${secondTeam.name}'. " + "*".repeat(30))
+            println("*".repeat(30) + " Р‘РРўР’Рђ РћРљРћРќР§Р•РќРђ. РџРћР‘Р•Р”РР›Рђ РљРћРњРђРќР”Рђ 2 '${secondTeam.name}'. " + "*".repeat(30))
             endBattle = true
         }
         is BattleState.Draw -> {
-            println("*".repeat(30) + " БИТВА ОКОНЧЕНА. НИЧЬЯ. " + "*".repeat(30))
+            println("*".repeat(30) + " Р‘РРўР’Рђ РћРљРћРќР§Р•РќРђ. РќРР§Р¬РЇ. " + "*".repeat(30))
             endBattle = true
         }
     }

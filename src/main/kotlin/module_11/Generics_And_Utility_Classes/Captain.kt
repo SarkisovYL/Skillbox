@@ -1,8 +1,8 @@
 package module_11.Generics_And_Utility_Classes
 
-//  Классы для воинов, наследуемых от AbstractWarrior
+//  РљР»Р°СЃСЃС‹ РґР»СЏ РІРѕРёРЅРѕРІ, РЅР°СЃР»РµРґСѓРµРјС‹С… РѕС‚ AbstractWarrior
 class Captain (
-    override val title: String = "Капитан",
+    override val title: String = "РљР°РїРёС‚Р°РЅ",
     override val maxHealth: Int = 15000,
     override val weapon: AbstractWeapon = Weapons.createRifle(),
     override var currentHealth: Int = 10000,

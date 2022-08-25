@@ -1,8 +1,8 @@
 package module_11.Generics_And_Utility_Classes
 
-//  Классы для воинов, наследуемых от AbstractWarrior
+//  РљР»Р°СЃСЃС‹ РґР»СЏ РІРѕРёРЅРѕРІ, РЅР°СЃР»РµРґСѓРµРјС‹С… РѕС‚ AbstractWarrior
 class General(
-    override val title: String = "Генерал",
+    override val title: String = "Р“РµРЅРµСЂР°Р»",
     override val maxHealth: Int = 20000,
     override val weapon: AbstractWeapon = Weapons.createPistol(),
     override var currentHealth: Int = 15000,

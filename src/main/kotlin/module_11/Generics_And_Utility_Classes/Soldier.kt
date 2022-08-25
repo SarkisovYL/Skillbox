@@ -1,8 +1,8 @@
 package module_11.Generics_And_Utility_Classes
 
-//  Классы для воинов, наследуемых от AbstractWarrior
+//  РљР»Р°СЃСЃС‹ РґР»СЏ РІРѕРёРЅРѕРІ, РЅР°СЃР»РµРґСѓРµРјС‹С… РѕС‚ AbstractWarrior
 class Soldier(
-    override val title: String = "Солдат",
+    override val title: String = "РЎРѕР»РґР°С‚",
     override val maxHealth: Int = 10000,
     override val weapon: AbstractWeapon = Weapons.createMachineGun(),
     override var currentHealth: Int = 5000,

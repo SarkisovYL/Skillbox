@@ -1,59 +1,59 @@
 package module_11.Generics_And_Utility_Classes
 
-//  Синглтон-объект Weapons, который создаёт разные виды оружия.
-//  Объект Weapons должен создавать анонимные объекты AbstractWeapon.
-//  Создадим четыре метода для разных видов оружия (пистолет, автомат, пулемет, снайперская винтовка).
-//  анонимные объекты AbstractWeapon
+//  РЎРёРЅРіР»С‚РѕРЅ-РѕР±СЉРµРєС‚ Weapons, РєРѕС‚РѕСЂС‹Р№ СЃРѕР·РґР°С‘С‚ СЂР°Р·РЅС‹Рµ РІРёРґС‹ РѕСЂСѓР¶РёСЏ.
+//  РћР±СЉРµРєС‚ Weapons РґРѕР»Р¶РµРЅ СЃРѕР·РґР°РІР°С‚СЊ Р°РЅРѕРЅРёРјРЅС‹Рµ РѕР±СЉРµРєС‚С‹ AbstractWeapon.
+//  РЎРѕР·РґР°РґРёРј С‡РµС‚С‹СЂРµ РјРµС‚РѕРґР° РґР»СЏ СЂР°Р·РЅС‹С… РІРёРґРѕРІ РѕСЂСѓР¶РёСЏ (РїРёСЃС‚РѕР»РµС‚, Р°РІС‚РѕРјР°С‚, РїСѓР»РµРјРµС‚, СЃРЅР°Р№РїРµСЂСЃРєР°СЏ РІРёРЅС‚РѕРІРєР°).
+//  Р°РЅРѕРЅРёРјРЅС‹Рµ РѕР±СЉРµРєС‚С‹ AbstractWeapon
 object Weapons {
-    //    Функция создания анонимного объекта pistol. Оружие пистолет.
+    //    Р¤СѓРЅРєС†РёСЏ СЃРѕР·РґР°РЅРёСЏ Р°РЅРѕРЅРёРјРЅРѕРіРѕ РѕР±СЉРµРєС‚Р° pistol. РћСЂСѓР¶РёРµ РїРёСЃС‚РѕР»РµС‚.
     fun createPistol(): AbstractWeapon {
         return object : AbstractWeapon() {
             override val maxRounds: Int = 9
             override val fireType: FireType = FireType.SingleShot
             override val ammoMagazine: Stack<Ammo> = Stack()
             override var roundsInMagazine: Boolean = false
-            override var name: String = "Пистолет"
+            override var name: String = "РџРёСЃС‚РѕР»РµС‚"
 
-            // Создание патрона необходимого типа
+            // РЎРѕР·РґР°РЅРёРµ РїР°С‚СЂРѕРЅР° РЅРµРѕР±С…РѕРґРёРјРѕРіРѕ С‚РёРїР°
             override fun createAmmo(): Ammo = Ammo.PM9
         }
     }
 
-    //  Функция создания анонимного объекта rifle. Оружие автомат.
+    //  Р¤СѓРЅРєС†РёСЏ СЃРѕР·РґР°РЅРёСЏ Р°РЅРѕРЅРёРјРЅРѕРіРѕ РѕР±СЉРµРєС‚Р° rifle. РћСЂСѓР¶РёРµ Р°РІС‚РѕРјР°С‚.
     fun createRifle(): AbstractWeapon {
         return object : AbstractWeapon() {
             override val maxRounds: Int = 30
             override val fireType: FireType = FireType.FiringBursts(sizeQueue = 3)
             override val ammoMagazine: Stack<Ammo> = Stack()
             override var roundsInMagazine: Boolean = false
-            override var name: String = "Автомат"
-            // Создание патрона необходимого типа
+            override var name: String = "РђРІС‚РѕРјР°С‚"
+            // РЎРѕР·РґР°РЅРёРµ РїР°С‚СЂРѕРЅР° РЅРµРѕР±С…РѕРґРёРјРѕРіРѕ С‚РёРїР°
             override fun createAmmo(): Ammo = Ammo.AKM7_62
         }
     }
 
-    //  Функция создания анонимного объекта machineGun. Оружие пулемет.
+    //  Р¤СѓРЅРєС†РёСЏ СЃРѕР·РґР°РЅРёСЏ Р°РЅРѕРЅРёРјРЅРѕРіРѕ РѕР±СЉРµРєС‚Р° machineGun. РћСЂСѓР¶РёРµ РїСѓР»РµРјРµС‚.
     fun createMachineGun(): AbstractWeapon {
         return object : AbstractWeapon() {
             override val maxRounds: Int = 75
             override val fireType: FireType = FireType.FiringBursts(5)
             override val ammoMagazine: Stack<Ammo> = Stack()
             override var roundsInMagazine: Boolean = false
-            override var name: String = "Пулемет"
-            // Создание патрона необходимого типа
+            override var name: String = "РџСѓР»РµРјРµС‚"
+            // РЎРѕР·РґР°РЅРёРµ РїР°С‚СЂРѕРЅР° РЅРµРѕР±С…РѕРґРёРјРѕРіРѕ С‚РёРїР°
             override fun createAmmo(): Ammo = Ammo.RPK5_45
         }
     }
 
-    //  Функция создания анонимного объекта sniper. Оружие снайперская винтовка.
+    //  Р¤СѓРЅРєС†РёСЏ СЃРѕР·РґР°РЅРёСЏ Р°РЅРѕРЅРёРјРЅРѕРіРѕ РѕР±СЉРµРєС‚Р° sniper. РћСЂСѓР¶РёРµ СЃРЅР°Р№РїРµСЂСЃРєР°СЏ РІРёРЅС‚РѕРІРєР°.
     fun createSniper(): AbstractWeapon {
         return object : AbstractWeapon() {
             override val maxRounds: Int = 10
             override val fireType: FireType = FireType.SingleShot
             override val ammoMagazine: Stack<Ammo> = Stack()
             override var roundsInMagazine: Boolean = false
-            override var name: String = "Снайперская винтовка"
-            // Создание патрона необходимого типа
+            override var name: String = "РЎРЅР°Р№РїРµСЂСЃРєР°СЏ РІРёРЅС‚РѕРІРєР°"
+            // РЎРѕР·РґР°РЅРёРµ РїР°С‚СЂРѕРЅР° РЅРµРѕР±С…РѕРґРёРјРѕРіРѕ С‚РёРїР°
             override fun createAmmo(): Ammo = Ammo.SNIPER7_62
         }
     }
