@@ -1,7 +1,5 @@
 package module_10.lesson4
 
-import java.time.LocalDateTime
-import java.time.format.DateTimeFormatter
 import kotlin.random.Random
 
 fun main() {
@@ -25,7 +23,8 @@ fun main() {
     fillAircraft(zeppelin)
     println(zeppelin.getInfo())
     zeppelin.getSeatScheme()
-    printPassengerInfo(aircraft = zeppelin, seat = Seat(0, 'C'))}
+    printPassengerInfo(aircraft = zeppelin, seat = Seat(0, 'C'))
+}
 
 fun printPassengerInfo(aircraft: Aircraft, seat: Seat) {
     aircraft.getPassenger(Seat(0, 'C'))       // место 0С
@@ -36,7 +35,7 @@ fun printPassengerInfo(aircraft: Aircraft, seat: Seat) {
 
 fun fillAircraft(aircraft: Aircraft) {
     val zeppelinPassenger = Random.nextInt(1, aircraft.capacity)
-    val formatter = DateTimeFormatter.ofPattern("dd-MMMM-yyyy")
+//    val formatter = DateTimeFormatter.ofPattern("dd-MMMM-yyyy")
     for (i in 0 until zeppelinPassenger) {
         val seat = aircraft.getAvailableSeat() ?: return
 
