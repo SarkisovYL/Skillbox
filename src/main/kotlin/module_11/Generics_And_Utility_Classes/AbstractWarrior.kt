@@ -27,6 +27,7 @@ abstract class AbstractWarrior : Warrior{
     // На вход принимает количество урона
     override fun setLoss(loss: Int) {
         currentHealth -= loss
+        if (currentHealth < 0) currentHealth = 0
         println("Нанесен урон $loss. Текущее здоровье $title: $currentHealth")
     }
 }
