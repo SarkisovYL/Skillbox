@@ -5,7 +5,7 @@ import kotlin.random.Random
 fun main() {
     // Начало битвы
     var i = 1
-    val battle = Battle(Team("Белые", 2), Team("Красные", 2))
+    val battle = Battle(Team("Белые", 6), Team("Красные", 6))
     battle.firstTeam.info(" СОСТАВ КОМАНДЫ 1 '${battle.firstTeam.name}' ")
     battle.secondTeam.info(" СОСТАВ КОМАНДЫ 2 '${battle.secondTeam.name}' ")
     do {
