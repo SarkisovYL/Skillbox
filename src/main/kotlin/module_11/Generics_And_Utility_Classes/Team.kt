@@ -40,7 +40,7 @@ class Team(
     fun info() {
         println("-".repeat(50))
         println("В команде ${this.name} из ${this.size} войнов в живых осталось ${this.structure.filter {it.currentHealth > 0}.size}")
-        println("Остались в команде $name")
+        if (this.structure.filter { it.currentHealth > 0 }.isNotEmpty()) println("Остались в команде $name")
         this.structure.filter {it.currentHealth > 0}.forEachIndexed{i, item -> println(
             "\t№ ${i + 1} Должность: ${item.title} Здоровье: ${item.currentHealth} Оружие: ${item.weapon.name}")}
         println("Погибли в команде $name")
