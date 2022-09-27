@@ -3,13 +3,13 @@ package module_06
 import java.util.TreeSet
 
 fun main() {
-//    TODO МНОЖЕСТВА (список с уникальными значениями)
-    val set = setOf(1, 2, 2, 3, 1, 2)                       // Возвращает неизменяемое множество
+//    TODO РњРќРћР–Р•РЎРўР’Рђ (СЃРїРёСЃРѕРє СЃ СѓРЅРёРєР°Р»СЊРЅС‹РјРё Р·РЅР°С‡РµРЅРёСЏРјРё)
+    val set = setOf(1, 2, 2, 3, 1, 2)                       // Р’РѕР·РІСЂР°С‰Р°РµС‚ РЅРµРёР·РјРµРЅСЏРµРјРѕРµ РјРЅРѕР¶РµСЃС‚РІРѕ
     val mset = mutableSetOf(1, 2, 3, 3, 2, 10)
 
-//    Все остальные ниже возвращают изменяемое множество
+//    Р’СЃРµ РѕСЃС‚Р°Р»СЊРЅС‹Рµ РЅРёР¶Рµ РІРѕР·РІСЂР°С‰Р°СЋС‚ РёР·РјРµРЅСЏРµРјРѕРµ РјРЅРѕР¶РµСЃС‚РІРѕ
     val hashSet = hashSetOf(1, 2, 3, 3, 2, 1)
-    val soredSet = sortedSetOf(1, 2, 3, 3, 2, 1).toSet()    // Функция toSet изменяемое множество в неизменяемое
+    val soredSet = sortedSetOf(1, 2, 3, 3, 2, 1).toSet()    // Р¤СѓРЅРєС†РёСЏ toSet РёР·РјРµРЅСЏРµРјРѕРµ РјРЅРѕР¶РµСЃС‚РІРѕ РІ РЅРµРёР·РјРµРЅСЏРµРјРѕРµ
     val mSet = mutableSetOf(1, 2, 3, 4, 3, 2, 1)
     val likedSet = linkedSetOf(1, 2, 3, 3, 2, 1)
     mSet.add(7)
@@ -17,20 +17,20 @@ fun main() {
     val hashSet2 = HashSet<String>()
     val soredSet2 = TreeSet<String>()
     val likedSet2 = LinkedHashSet<String>()
-//    Действия с множествами
+//    Р”РµР№СЃС‚РІРёСЏ СЃ РјРЅРѕР¶РµСЃС‚РІР°РјРё
     val firstSet = setOf(1, 2, 3, 4)
     val secondSet = setOf(3, 4, 5, 6)
     println("firstSet - $firstSet")
     println("secondSet - $secondSet")
-//    Сложение множеств
+//    РЎР»РѕР¶РµРЅРёРµ РјРЅРѕР¶РµСЃС‚РІ
     val unionSet = firstSet.union(secondSet)
     println("unionSet - $unionSet")
-//    Вычитание множеств
+//    Р’С‹С‡РёС‚Р°РЅРёРµ РјРЅРѕР¶РµСЃС‚РІ
     val substractSet12 = firstSet.subtract(secondSet)
     println("substractSet (1-2) - $substractSet12")
     val substractSet21 = secondSet.subtract(firstSet)
     println("substractSet (2-1) - $substractSet21")
-//    Пересечение множеств
+//    РџРµСЂРµСЃРµС‡РµРЅРёРµ РјРЅРѕР¶РµСЃС‚РІ
     val intersetSet = firstSet.intersect(secondSet)
     println("intersetSet - $intersetSet")
 }
